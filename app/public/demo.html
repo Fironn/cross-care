@@ -12,9 +12,10 @@
     <script defer src="/__/firebase/7.5.2/firebase-database.js"></script>
     <script defer src="/__/firebase/7.5.2/firebase-messaging.js"></script>
     <script defer src="/__/firebase/7.5.2/firebase-storage.js"></script>
+    <script src="demo.js" type="text/javascript"></script>
     <!-- initialize the SDK after all desired features are loaded -->
     <script defer src="/__/firebase/init.js"></script>
-
+    <link rel="stylesheet"href="demo.css"type="text/css">
     <style media="screen">
       body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
       #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
@@ -38,8 +39,10 @@
       <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
     </div>
     <p id="load">Firebase SDK Loading&hellip;</p>
-    <a href="login.html">login</a>
-    <a href="demo.html">demo</a>
+    <input type="button" value="exec" onclick="large();">
+    <center>
+    <canvas id="cvs1"width="450"height="450" style="width:500px"></canvas>
+    </center>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         // The Firebase SDK is initialized and available here!
