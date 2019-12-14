@@ -1,0 +1,59 @@
+/* :root {
+    --main-color: #7117ea;
+    --sub-color: #ea6060;
+    --bg-gradation: linear-gradient(135deg, var(--main-color) 0%, var(--sub-color) 100%) fixed;
+} */
+
+  /* p220 */
+
+html{
+    margin:0;
+    padding:0;
+    font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
+}
+
+body{
+    margin:0;
+    padding:0;
+}
+
+#title{
+    top:18%;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 4px;
+    vertical-align: middle;
+}
+
+#title h3{
+    position: relative;
+    top:50px;
+    font-size: smaller;
+}
+
+#title h1{
+    font-size: 80px;
+}
+
+#button a{
+    position: relative;
+    margin: 0 10px 0 10px;
+}
+
+.btn-partial-line {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    border-bottom: solid 3px #000000;
+    border-left: solid 3px #000000;
+    color: #000000;
+    transition: .4s;
+}  
+
+.btn-partial-line:active{
+    padding-left: 0.7em;
+    padding-right: 0.3em;
+}

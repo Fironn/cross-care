@@ -6,7 +6,6 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
  response.send("Hello from Firebase!");
 });
 
-
 exports.setData = functions.https.onRequest((request, response) => {
   if (request.method === "GET") {
       admin.database().ref("/users/"+body["userId"]+"/add").once("value")
