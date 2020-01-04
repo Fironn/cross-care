@@ -8,7 +8,8 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 
 exports.setData = functions.https.onRequest((request, response) => {
   if (request.method === "GET") {
-      admin.database().ref("/users/"+body["userId"]+"/add").once("value")
+      const param = request.query;
+      admin.database().ref("/users/"+param["userId"]+"/add").once("value")
           .then(snapshot => {
                   const products = snapshot.val();
                   const array = Object.keys(products).map(key => products[key]);
@@ -23,14 +24,13 @@ exports.setData = functions.https.onRequest((request, response) => {
       );
 
   } else if (request.method === "POST") {
-      var now = new Date();
       const body = request.body;
       const pushRef = admin.database().ref("/users/"+body["userId"]+"/add");
 
       pushRef.set({
           add: body["add"],
           addType: body["type"],
-          update: now
+          update: body["update"]
       }, error => {
 
           if (error) {
@@ -47,7 +47,8 @@ exports.setData = functions.https.onRequest((request, response) => {
 
 exports.usersDetail = functions.https.onRequest((request, response) => {
   if (request.method === "GET") {
-      admin.database().ref("/users/"+body["userId"]+"/detail").once("value")
+      const param = request.query;
+      admin.database().ref("/users/"+param["userId"]+"/detail").once("value")
           .then(snapshot => {
                   const products = snapshot.val();
                   const array = Object.keys(products).map(key => products[key]);
@@ -68,7 +69,8 @@ exports.usersDetail = functions.https.onRequest((request, response) => {
 
       pushRef.set({
           userName: body["userName"],
-          eggName: body["eggName"]
+          eggName: body["eggName"],
+          update: body["update"]
       }, error => {
 
           if (error) {
