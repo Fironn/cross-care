@@ -13,8 +13,8 @@ firebase.initializeApp({
 });
 var functions = firebase.functions();
 
-var addMessage = firebase.functions().httpsCallable('getDetail');
-addMessage({userId:userId}).then(function(result) {
+var getData = firebase.functions().httpsCallable('getDetail');
+getData({userId:userId}).then(function(result) {
   console.log(result.data);
   document.getElementById("point").innerText=result.data[1];
   document.getElementById("userName").innerText=result.data[0];
