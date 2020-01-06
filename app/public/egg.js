@@ -24,7 +24,7 @@ getData({userId:userId}).then(function(result) {
   lev=Math.floor(point/100);
   document.getElementById("level").innerText=lev;
   window.onload();
-}).catch( error =>  console.log(error) );;
+}).catch( error =>  console.log(error) );
 
 window.onload=function(){
     // var levelBar = document.getElementById('levelBar');

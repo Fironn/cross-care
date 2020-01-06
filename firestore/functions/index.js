@@ -67,15 +67,16 @@ exports.getDetail = functions.https.onCall((data, context) => {
 exports.setDetail = functions.https.onCall((data, context) => {
     const userName=data.userName;
     const eggName=data.eggName;
-    const update=data.text.update;
+    const update=data.update;
     if(!userName||!eggName||!update){
         throw new functions.https.HttpsError('put the data');
     }
-    const pushRef = admin.database().ref("/users/"+userId+"/add");
+    const pushRef = admin.database().ref("/users/"+userId+"/detail");
     pushRef.set({
-        add: add,
-        addType: type,
-        update: update
+        userName: userName,
+        eggName: eggName,
+        update: update,
+        point:0
     }, error => {
         if (error) {
             console.log("save error", error.message);
@@ -93,7 +94,11 @@ exports.getDetailAll = functions.https.onCall((data, context) => {
     .then(snapshot => {
             const products = snapshot.val();
             const array = Object.keys(products).map(key => products[key]);
-            return array;
+            var arraySend = [];
+            for (var i=0; i<array.length;i++){
+                arraySend.push(array[i]["detail"]);
+            }
+            return arraySend;
         }
     ).catch(error => {
         throw new functions.https.HttpsError('unknown', error.message, error);
