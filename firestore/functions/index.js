@@ -87,3 +87,15 @@ exports.setDetail = functions.https.onCall((data, context) => {
     });
     return data;
 });
+
+exports.getDetailAll = functions.https.onCall((data, context) => {
+    return admin.database().ref("/users").once("value")
+    .then(snapshot => {
+            const products = snapshot.val();
+            const array = Object.keys(products).map(key => products[key]);
+            return array;
+        }
+    ).catch(error => {
+        throw new functions.https.HttpsError('unknown', error.message, error);
+    });
+});
