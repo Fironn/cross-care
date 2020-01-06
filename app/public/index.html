@@ -4,48 +4,37 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     <title>Cross Care</title>
-
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/7.5.2/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/7.5.2/firebase-auth.js"></script>
-    <script defer src="/__/firebase/7.5.2/firebase-database.js"></script>
-    <script defer src="/__/firebase/7.5.2/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/7.5.2/firebase-storage.js"></script>
-    <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src="/__/firebase/init.js"></script>
+    <script src="https://kit.fontawesome.com/f4a3d5924d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="index.css"type="text/css">
-
   </head>
   <body>
-    <div id="title">
-    <h3>みんなで育てるすれ違いアプリ</h3>
+    <div class="title">
+    <h3 class="smaller">みんなで育てるすれ違いアプリ</h3>
     <h1>Cross<br>Care</h1>
-    <div id="button">
-    <a class="btn-partial-line">login</a>
-    <!-- <a class="btn-partial-line" onclick="location.href='login.html'">login</a> -->
-    <a class="btn-partial-line" onclick="location.href='demo.html'">demo</a>
+    <div class="button">
+    <p class="btn-partial-line" onclick="location.href='egg.html'"><spam class="larger">わたし</spam>の<br>たまご</p>
+    <p class="btn-partial-line" onclick="location.href='all.html'"><spam class="larger">みんな</spam>の<br>たまご</p>
     </div>
     </div>
-    <!-- <p id="load">Firebase SDK Loading&hellip;</p>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // The Firebase SDK is initialized and available here!
-        
-        firebase.auth().onAuthStateChanged(user => { });
-        firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        firebase.messaging().requestPermission().then(() => { });
-        firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        
-        try {
-          let app = firebase.app();
-          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script> -->
   </body>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-functions.js"></script>
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyChJyeair2I4TkizlQD91yY2JEJ8CdFhq8",
+      authDomain: "cross-care-d73be.firebaseapp.com",
+      databaseURL: "https://cross-care-d73be.firebaseio.com",
+      projectId: "cross-care-d73be",
+      storageBucket: "cross-care-d73be.appspot.com",
+      messagingSenderId: "476335307395",
+      appId: "1:476335307395:web:b42767053c1a18f92639b6",
+      measurementId: "G-N508Y1632H"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
 </html>
