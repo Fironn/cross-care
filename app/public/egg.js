@@ -5,16 +5,9 @@ const vw=screen.width;
 const vh=screen.height;
 const userId='1';
 
-firebase.initializeApp({
-    apiKey: "AIzaSyChJyeair2I4TkizlQD91yY2JEJ8CdFhq8",
-    authDomain: "cross-care-d73be.firebaseapp.com",
-    projectId: "cross-care-d73be",
-    databaseURL: "https://cross-care-d73be.firebaseio.com"
-});
-var functions = firebase.functions();
-
 var getData = firebase.functions().httpsCallable('getDetail');
-getData({userId:userId}).then(function(result) {
+
+getData().then(function(result) {
   console.log(result.data);
   document.getElementById("point").innerText=result.data[1];
   document.getElementById("userName").innerText=result.data[0];
@@ -27,12 +20,6 @@ getData({userId:userId}).then(function(result) {
 }).catch( error =>  console.log(error) );
 
 window.onload=function(){
-    // var levelBar = document.getElementById('levelBar');
-    // var levBcontext = levelBar.getContext('2d');
-    // levBcontext.fillRect(0,0,point,20);
-    // levBcontext.fillStyle = 'rgb(255,00,00)';
-    // levBcontext.fill();
-    
     var cvs=document.getElementById("egg");
     var ctx=cvs.getContext("2d");
     ctx.fillStyle="black";
@@ -45,7 +32,7 @@ large=function(){
     x+=0.03;
     point+=10;
     document.getElementById("point").innerText=point;
-    if(point>lev*100&&point%(lev*100)==0){
+    if(point>lev*100&&point%100==0){
         lev++;
         document.getElementById("level").innerText=lev;
     }
