@@ -8,7 +8,7 @@ exports.helloWorld = functions.https.onCall((data, context) => {
 });
 
 exports.getData = functions.https.onCall((data,context) => {
-    const userId = context.uid;
+    const userId = context.auth.uid;
     if (!userId) {
         throw new functions.https.HttpsError('put the user id');
     }
