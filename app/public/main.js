@@ -23,9 +23,11 @@ function initApp(){
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             document.getElementById("button").innerHTML = 
-                `<p class="btn-partial-line" onclick="location.href = 'egg.html'"><spam class="larger">わたし</spam>の<br>たまご</p>
-                <p class="btn-partial-line" onclick = "location.href='all.html'"> <spam class="larger">みんな</spam>の<br>たまご</p>
-                <p class="btn-partial-line" onclick="location.href='beacon.html'"><spam class="larger">test</spam><br>Beacon</p>`;
+                `<div class="goto">
+                    <p class="btn-partial-line" onclick="location.href = 'egg.html'"><spam class="larger">わたし</spam>の<br>たまご</p>
+                    <p class="btn-partial-line" onclick = "location.href='all.html'"> <spam class="larger">みんな</spam>の<br>たまご</p>
+                    <p class="btn-partial-line" onclick="location.href='beacon.html'"><spam class="larger">test</spam><br>Beacon</p>
+                </div>`;
             document.getElementById("logout").style.display = "block";
             printUserInfo(user.email);
             log(`ログインしました。`);
@@ -93,7 +95,20 @@ onSignOutButtonClicked = function () {
         .signOut()
         .then(function () {
             document.getElementById("button").innerHTML =
-                `<div><label for="email">Email</label><input type="email" id="email" /></div><div><label for="password">Password</label><input type="password" id="password"/></div><p class="btn-partial-line" id="sign-in" onclick="onSignInButtonClicked();">ログイン</p><p class="btn-partial-line" id="sign-up" onclick="onSignUpButtonClicked();">新規登録</p>`;
+                `<div class="form">
+                    <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" />
+                    </div>
+                    <div>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" />
+                    </div>
+                </div>
+                <div class="goto">
+                    <p class="btn-partial-line" id="sign-in" onclick="onSignInButtonClicked();">ログイン</p>
+                    <p class="btn-partial-line" id="sign-up" onclick="onSignUpButtonClicked();">新規登録</p>
+                </div>`;
             document.getElementById("logout").style.display = "none";
             document.getElementById("email").value="";
             log("ログアウトしました。");

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="index.css" type="text/css">
   </head>
   <body>
-    <div class="title">
+    <div class="top">
       <div class="logout">
         <span id="userinfo"></span><button id="logout" onclick="onSignOutButtonClicked();">sign out</button>
       </div>
@@ -25,21 +25,28 @@
         </div>
         <p class="btn-partial-line" id="popupHide" onclick="popupHide();">保存</p>
       </div>
-    <h3 class="smaller">みんなで育てるすれ違いアプリ</h3>
-    <h1>Cross<br>Care</h1>
-    <div class="button" id="button">
-      <div>
-        <label for="email">Email</label>
-        <input type="email" id="email" />
+      <div id="title">
+        <h3 class="smaller">みんなで育てるすれ違いアプリ</h3>
+        <h1>Cross<br>Care</h1>
+        <div class="button" id="button">
+          <div class="form">
+            <div>
+              <label for="email">Email</label>
+              <input type="email" id="email" />
+            </div>
+            <div>
+              <label for="password">Password</label>
+              <input type="password" id="password" />
+            </div>
+          </div>
+          <div class="goto">
+            <p class="btn-partial-line" id="sign-in" onclick="onSignInButtonClicked();">ログイン</p>
+            <p class="btn-partial-line" id="sign-up" onclick="onSignUpButtonClicked();">新規登録</p>
+          </div>
+        </div>
       </div>
-      <div>
-        <label for="password">Password</label>
-        <input type="password" id="password" />
-      </div>
-      <p class="btn-partial-line" id="sign-in" onclick="onSignInButtonClicked();">ログイン</p>
-      <p class="btn-partial-line" id="sign-up" onclick="onSignUpButtonClicked();">新規登録</p>
-    </div><p id="log"></p>
-    
+      <p id="log"></p>
+    </div>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase.js"></script>
