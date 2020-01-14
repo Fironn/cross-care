@@ -112,6 +112,7 @@ onSignOutButtonClicked = function () {
             document.getElementById("logout").style.display = "none";
             document.getElementById("email").value="";
             log("ログアウトしました。");
+            document.getElementById("userinfo").innerHTML = `<p></p>`;
         })
         .catch(function (error) {
             log(`ログアウトできませんでした。${error}`);
