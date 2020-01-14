@@ -167,6 +167,13 @@ footer{
     margin:10% 0;
 }
 
+#popup input{
+    padding: 3px 7px; 
+    border-radius: 3px;
+    border: 2px solid #ddd;
+    box-sizing: border-box;
+}
+
 #layer {
     display: none;
     position: fixed; 
