@@ -1,10 +1,9 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
-
 admin.initializeApp(functions.config().firebase);
  
-exports.helloWorld = functions.https.onCall((data, context) => {
-    return{text:"Hello from Firebase!"};
+exports.helloWorld = functions.https.onRequest((request, response) => {
+ response.send("Hello from Firebase!");
 });
 
 exports.getData = functions.https.onCall((data,context) => {
@@ -23,62 +22,74 @@ exports.getData = functions.https.onCall((data,context) => {
     });
 });
 
-exports.setData = functions.https.onCall((data, context) => {
-    const userId = context.auth.uid;
-    const add=data.add;
-    const type=data.type;
-    const update=data.update;
-    if(!userId||!add||!type||!update){
-        throw new functions.https.HttpsError('put the data');
-    }
-    return admin.database().ref("/users/" + userId + "/add").set({
-        add: add,
-        addType: type,
-        update: update
-    }).then(() => {
-        console.log('New Message written');
-        // Returning the sanitized message to the client.
-        return data;
-    }).catch(error => {
-        throw new functions.https.HttpsError('unknown', error.message, error);
-    });
+                  console.log("reference success", array);
+                  response.status(200).json(array).end();
+              }
+          ).catch(error => {
+              console.log("reference error", error);
+              response.status(500).end();
+          }
+      );
+
+  } else if (request.method === "POST") {
+      var now = new Date();
+      const body = request.body;
+      const pushRef = admin.database().ref("/users/"+body["userId"]+"/add");
+
+      pushRef.set({
+          add: body["add"],
+          addType: body["type"],
+          update: now
+      }, error => {
+
+          if (error) {
+              console.log("save error", error.message);
+              response.status(500).send(error.message).end();
+          } else {
+              console.log("save success");
+              response.status(200).end();
+          }
+      });
+
+  } else response.status(404).end();
 });
 
-exports.getDetail = functions.https.onCall((data, context) => {
-    const userId = context.auth.uid;
-    if (!userId) {
-        throw new functions.https.HttpsError('put the user id');
-    }
-    return admin.database().ref("/users/"+userId+"/detail").once("value")
-    .then(snapshot => {
-        const products = snapshot.val();
-        const array = Object.keys(products).map(key => products[key]);
-        return array;
-    }).catch(error => {
-        throw new functions.https.HttpsError('unknown', error.message, error);
-    });
-});
+exports.usersDetail = functions.https.onRequest((request, response) => {
+  if (request.method === "GET") {
+      admin.database().ref("/users/"+body["userId"]+"/detail").once("value")
+          .then(snapshot => {
+                  const products = snapshot.val();
+                  const array = Object.keys(products).map(key => products[key]);
 
-exports.setDetail = functions.https.onCall((data, context) => {
-    const userId = context.auth.uid;
-    const userName=data.userName;
-    const eggName=data.eggName;
-    const update=data.update;
-    if(!userName||!eggName||!update){
-        throw new functions.https.HttpsError('put the data');
-    }
-    return admin.database().ref("/users/" + userId + "/detail").set({
-        userName: userName,
-        eggName: eggName,
-        update: update,
-        point: 0
-    }).then(() => {
-        console.log('New Message written');
-        // Returning the sanitized message to the client.
-        return data;
-    }).catch(error => {
-        throw new functions.https.HttpsError('unknown', error.message, error);
-    });
+                  console.log("reference success", array);
+                  response.status(200).json(array).end();
+              }
+          ).catch(error => {
+              console.log("reference error", error);
+              response.status(500).end();
+          }
+      );
+
+  } else if (request.method === "POST") {
+      var now = new Date();
+      const body = request.body;
+      const pushRef = admin.database().ref("/users/"+body["userId"]+"/detail");
+
+      pushRef.set({
+          userName: body["userName"],
+          eggName: body["eggName"]
+      }, error => {
+
+          if (error) {
+              console.log("save error", error.message);
+              response.status(500).send(error.message).end();
+          } else {
+              console.log("save success");
+              response.status(200).end();
+          }
+      });
+
+  } else response.status(404).end();
 });
 
 exports.getDetailAll = functions.https.onCall((data, context) => {

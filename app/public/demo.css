@@ -1,14 +1,24 @@
-.main{
+html{
+    margin:0;
+    padding:0;
+    font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
+}
+
+body{
+    margin:0;
+    padding:0;
+}
+
+#main{
     position: absolute;
     height: 100%;
     width: 100%;
     text-align: center;
     letter-spacing: 3px;
     /* vertical-align: middle; */
-    color: black;
 }
 
-.detail{
+#detail{
     text-align: left;
     position: relative;
     top:15px;
@@ -55,6 +65,8 @@
     left: 7px;
     top: 70px;
 }
+
+
 
 #egg{
     position: absolute;
