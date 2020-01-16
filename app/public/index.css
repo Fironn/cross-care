@@ -19,13 +19,6 @@ body{
     padding:0;
 }
 
-footer{
-    background-color: #000000;
-    height: 20px;
-    position: absolute;
-    bottom: 0;
-}
-
 .top{
     position: absolute;
     width: 100%;
@@ -189,6 +182,30 @@ footer{
     position: fixed;
     bottom: 4px;
     width: 100%;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.home{
+    color: black;
+    font-size: 45px;
+    position: fixed;
+    top:20px;
+    right: 10px;
+    z-index: 99998;
+}
+
+#noti{
+    background-color: #000000;
+    height: 15px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    color: white;
+    margin: 0;
+    padding: 5px;
+    vertical-align: middle;
+    font-size: 10px;
     text-align: center;
     letter-spacing: 2px;
 }

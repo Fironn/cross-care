@@ -4,23 +4,27 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     <title>Egg</title>
+    <script src="https://kit.fontawesome.com/f4a3d5924d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="index.css" type="text/css">
     <link rel="stylesheet" href="egg.css" type="text/css">
   </head>
   <body>
-    <div class="main">
-        <div class="detail">
-            <div id="levelTag">Lv.</div>
-            <div id="level">1</div><div id="userName">Neko</div>
-            <div><span id="petName">Inu</span><span id="point">10</span><canvas id="levelBar"></canvas></div>
-        </div>
+    <div class="top">
+      <div class="home">
+        <i class="fas fa-home" onclick="location.href = './index.html'"></i>
+      </div>
+      <div class="detail">
+          <div id="levelTag">Lv.</div>
+          <div id="level"></div><div id="userName"></div>
+          <div><span id="petName"></span><span id="point"></span><canvas id="levelBar"></canvas></div>
+      </div>
     </div>
-    <canvas id="egg" width="350px" height="600px" onclick="large();"></canvas>
+    <div id="egg_trim">
+      <img id="egg" src="img/1.png" onclick="large();">
+    </div>
     <!-- <input type="button" value="exec" onclick="large();"> -->
+    <div id="noti">notificaition</div>
   </body>
-  <footer>
-    <div>notificaition</div>
-  </footer>
   <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase.js"></script>

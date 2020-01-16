@@ -120,12 +120,7 @@ onSignOutButtonClicked = function () {
 };
 
 function log(msg) {
-    document.getElementById("log").innerText = `${msg}\n`;
-}
-
-window.onload=function(){
-    this.initApp();
-    // this.popupHide();
+    document.getElementById("noti").innerText = `${msg}\n`;
 }
 
 function popupShow(){

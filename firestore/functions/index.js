@@ -96,3 +96,21 @@ exports.getDetailAll = functions.https.onCall((data, context) => {
         throw new functions.https.HttpsError('unknown', error.message, error);
     });
 });
+
+exports.updatePoint = functions.database.ref('/users/{pushId}/add')
+    .onUpdate((change, context) => {
+        const products = change.after.val();
+        const array = Object.keys(products).map(key => products[key]);
+
+        console.log(array);
+        return admin.database().ref("/users/"+context.params.pushId+"/detail").update({
+            update: Date.now(),
+            point: array[0]
+        }).then(() => {
+            console.log('New Message written');
+            // Returning the sanitized message to the client.
+            return data;
+        }).catch(error => {
+            throw new functions.https.HttpsError('unknown', error.message, error);
+        });
+    });

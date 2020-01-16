@@ -7,7 +7,7 @@
     <script src="https://kit.fontawesome.com/f4a3d5924d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="index.css" type="text/css">
   </head>
-  <body>
+  <body onload="initApp();">
     <div class="top">
       <div class="logout">
         <span id="userinfo"></span><button id="logout" onclick="onSignOutButtonClicked();">sign out</button>
@@ -45,8 +45,9 @@
           </div>
         </div>
       </div>
-      <p id="log"></p>
     </div>
+    <div id="noti">notificaition</div>
+  </body>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase.js"></script>
