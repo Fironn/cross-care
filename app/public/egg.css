@@ -1,0 +1,76 @@
+.main{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 3px;
+    /* vertical-align: middle; */
+    color: black;
+}
+
+.detail{
+    text-align: left;
+    position: relative;
+    top:15px;
+    left: 20px;
+    height: 20%;
+    font-size: 20px;
+
+}
+
+#levelTag{
+    position: absolute;
+    font-size: 10px;
+    left: 5px;
+    top:-5px;
+}
+
+#level{
+    left: -10px;
+    text-align: center;
+    letter-spacing: -0.1em;
+    position: relative;
+    font-size: 65px;
+    font-weight: 900;
+    width: 70px;
+}
+
+
+#userName{
+    position: absolute;
+    left: 80px;
+    top:10px;
+}
+
+#petName{
+    position: absolute;
+    left: 80px;
+    top:37px;
+    font-size: x-large;
+}
+
+#point{
+    position: absolute;
+    font-size: 15px;
+    left: 7px;
+    top: 70px;
+}
+
+#egg{
+    position: absolute;
+    width: 100%;
+    transition: .4s;
+}
+#egg_trim{
+    width: 70%;
+    height: 70%;
+    top:30%;
+    left: 15%;
+    overflow:hidden;
+    position: absolute;
+}
+
+#egg:active{
+    padding-bottom: 0.7em;
+    padding-top: 0.3em;
+}
