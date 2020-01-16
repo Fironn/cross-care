@@ -17,28 +17,84 @@ body{
     padding:0;
 }
 
-#title{
-    top:18%;
+.top{
     position: absolute;
     width: 100%;
+    color: black;
     text-align: center;
     letter-spacing: 4px;
     vertical-align: middle;
 }
 
-#title h3{
+#title{
+    position: absolute;
+    width: 100%;
+    top:13vh;
+    color: black;
+    text-align: center;
+    letter-spacing: 4px;
+    vertical-align: middle;
+}
+
+#title .smaller{
     position: relative;
     top:50px;
     font-size: smaller;
 }
 
 #title h1{
+    position: relative;
+    top:30px;
     font-size: 80px;
+    margin: 40px 0;
+}
+
+.button{
+    position: relative;
+    top:30px;
 }
 
 #button a{
     position: relative;
     margin: 0 10px 0 10px;
+    font-size: 16px;
+}
+
+.button .form{
+    text-align: left;
+    position: relative;
+    margin: 30px 0;
+    padding-left: 16vw;
+    font-size: 12px;
+}
+
+.form input{
+    position: absolute;
+    left: 25vw;
+    width: 150px;
+    top:-3px;
+    padding: 3px 7px; 
+    border-radius: 3px;
+    border: 2px solid #ddd;
+    box-sizing: border-box;
+}
+.form div{
+    position: relative;
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+.button .goto{
+    position: relative;
+}
+
+.button .larger{
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.button p{
+    margin: 10px;
 }
 
 .btn-partial-line {
@@ -56,4 +112,98 @@ body{
 .btn-partial-line:active{
     padding-left: 0.7em;
     padding-right: 0.3em;
+}
+
+#logout{
+    display: none;
+}
+
+.logout button{
+    position: absolute;
+    top:26px;
+    right: 5px;
+    border: 2px solid #ddd;
+}
+
+#userinfo{
+    font-size: 9px;
+    letter-spacing: normal;
+    position: absolute;
+    top:5px;
+    right: 10px;
+    margin: 0;
+}
+
+#popup {
+    display: none;
+    position: fixed; 
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    top:30%;
+    left:10%;
+    height: 40%;
+    width: 80%;
+    text-align: center;
+    z-index: 99999;
+}
+
+#popup div{
+    margin:5% 0;
+}
+
+#popup p{
+    margin:5% 0;
+}
+#popup h2{
+    margin:10% 0;
+}
+
+#popup input{
+    padding: 3px 7px; 
+    border-radius: 3px;
+    border: 2px solid #ddd;
+    box-sizing: border-box;
+}
+
+#layer {
+    display: none;
+    position: fixed; 
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.349);
+}
+
+#log{
+    font-size: 7px;
+    position: fixed;
+    bottom: 4px;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.home{
+    color: black;
+    font-size: 45px;
+    position: fixed;
+    top:20px;
+    right: 10px;
+    z-index: 99998;
+}
+
+#noti{
+    background-color: #000000;
+    height: 15px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    color: white;
+    margin: 0;
+    padding: 5px;
+    vertical-align: middle;
+    font-size: 10px;
+    text-align: center;
+    letter-spacing: 2px;
 }
