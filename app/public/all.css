@@ -12,6 +12,7 @@
     background-color: rgb(163, 163, 163);
     height: 70vw;
     border: solid 4px rgb(226, 226, 226);
+    z-index: 99996;
 }
 
 .detail{
@@ -63,4 +64,17 @@
 #egg{
     width: 25vw;
     transition: .4s;
+}
+
+#egg:active{
+    padding-bottom: 0.7em;
+    padding-top: 0.3em;
+}
+
+.fa-heart {
+    position: relative;
+    top:-130px;
+    color: #fd8e8eaf;
+    font-size:80px;
+    display: none;
 }

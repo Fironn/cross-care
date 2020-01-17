@@ -60,6 +60,7 @@
     position: absolute;
     width: 100%;
     transition: .4s;
+    z-index: 99996;
 }
 #egg_trim{
     width: 70%;
@@ -74,3 +75,117 @@
     padding-bottom: 0.7em;
     padding-top: 0.3em;
 }
+
+
+#popup {
+    display: block;
+    text-align: center;
+    height:74%;
+    width: 80%;
+    top:10%;
+}
+
+#popup p {
+    margin: 10% 0;
+}
+
+#popup div i{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    font-size: 40px;
+    margin: 0 20px;
+    text-align: center;
+}
+
+#bar{
+    position: relative;
+    width: 100%;
+    left: 0;
+    padding: 0;
+    text-align: center;
+}
+
+#bar_select{
+    width: 80%;
+    padding: 0;
+}
+
+#bar_value{
+    display: block;
+    width: 100%;
+    font-size: 40px;
+}
+
+#popup h6{
+    margin: 30px 0 0 0;
+    letter-spacing: 1px;
+    font-weight: 550;
+}
+
+#layer {
+    display: inline;
+}
+
+.check{
+    position: relative;
+    font-size: 10px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+input[type="checkbox"] {
+    display: none; /* チェックボックスを非表示にする */
+}
+
+input[type="checkbox"] + label {
+    background: rgb(204, 60, 60);/* マウス選択時の背景色を指定する */
+    color: #ffffff; /* マウス選択時のフォント色を指定する */
+}
+
+input[type="checkbox"]:checked + label {
+    background: rgb(62, 143, 62);/* マウス選択時の背景色を指定する */
+    color: #ffffff; /* マウス選択時のフォント色を指定する */
+}
+
+.label {
+    display:inline-block; /* ブロックレベル要素化する */
+    width: 25%; /* ラベルの横幅を指定する */
+    height: 5%; /* ラベルの高さを指定する */
+    text-align: center; /* テキストのセンタリングを指定する */
+    line-height: 30px;
+    border: 2px solid rgb(59, 59, 59);/* ラベルの境界線を実線で指定する */
+    border-radius: 5px; /* 角丸を指定する */
+}
+
+input[type=range] {
+    -webkit-appearance:none;
+    background:rgb(209, 209, 209);
+    height:7px;
+    width:240px;
+    border-radius:8px;
+}
+
+input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance:none;
+    background:rgb(42, 42, 42);
+    height:20px;
+    width:20px;
+    border-radius:50%;
+}
+
+input[type=range]::-ms-tooltip{
+    display:none;
+}
+
+input[type=range]::-moz-range-track{
+    height:20px;
+}
+
+input[type=range]::-moz-range-thumb{
+    height:20px;
+    width:20px;
+    border:none;
+    border-radius:50%;
+}
+  

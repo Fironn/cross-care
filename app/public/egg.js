@@ -1,25 +1,21 @@
-var x=1;
 var point=10;
 var lev=1;
 const vw=screen.width;
 const vh=screen.height;
-const userId='1';
 
-var getData = firebase.functions().httpsCallable('getDetail');
-
-getData().then(function(result) {
-  console.log(result.data);
-  document.getElementById("point").innerText=result.data[1];
-  document.getElementById("userName").innerText=result.data[0];
-  document.getElementById("petName").innerText=result.data[3];
-  point=result.data[1];
-  x=point/100;
-  lev=Math.floor(point/100)+1;
-  document.getElementById("level").innerText=lev;
-  window.onload();
+getDetail().then(function(result) {
+    thisUser=result;
+    document.getElementById("point").innerText=result.data[4];
+    document.getElementById("userName").innerText=result.data[7];
+    document.getElementById("petName").innerText=result.data[3];
+    document.getElementsByClassName("label")[0].innerText = result.data[0];
+    document.getElementsByClassName("label")[1].innerText = result.data[1];
+    document.getElementsByClassName("label")[2].innerText = result.data[2];
+    point=result.data[4];
+    lev=Math.floor(point/100)+1;
+    document.getElementById("level").innerText=lev;
+    window.onload();
 }).catch( error =>  console.log(error) );
-
-var pics_src = new Array("img/1.png", "img/2.png", "img/3.png", "img/4.png", "img/5.png", "img/6.png");
 
 window.onload=function(){
     var pic;
@@ -30,17 +26,16 @@ window.onload=function(){
 }
 
 function addPoint(add,type){
-    setData({
+    setAdd({
         add: add,
         type: type,
-        update: Date.now()
     }).then(function (result) {
         console.log(result.data);
     }).catch(error => console.log(error));
 }
 
 large=function() {
-    x += 0.03;
+    point = parseInt(point, 10);
     point += 10;
     document.getElementById("point").innerText=point;
     if (point > lev * 100 && point % 100 == 0) {
@@ -48,5 +43,34 @@ large=function() {
         document.getElementById("level").innerText = lev;
     }
     if(point%100==0)addPoint(point,"tap");
+    window.onload();
+}
+
+function saveNote() {
+    document.getElementById("popup").style.display = "none";
+    document.getElementById("layer").style.display = "none";
+    var note=""
+
+    if (!document.getElementById("check1").checked) note += document.getElementsByClassName("label")[0].innerText+",";
+    if (!document.getElementById("check2").checked) note += document.getElementsByClassName("label")[1].innerText + ",";
+    if (!document.getElementById("check3").checked) note += document.getElementsByClassName("label")[2].innerText + ",";
+    if(note=="")note="none";
+
+    point = parseInt(point,10);
+    point += parseInt(document.getElementById("bar_select").value,10);
+    if(point<0)point=0;
+    setNote({
+        add: parseInt(document.getElementById("bar_select").value,10),
+        type: "daily",
+        note: note
+    }).then(function (result) {
+        console.log(result.data);
+    }).catch(error => console.log(error));
+
+    addPoint(point, "daily");
+
+    lev = Math.floor(point / 100) + 1;
+    document.getElementById("level").innerText = lev;
+    document.getElementById("point").innerText = point;
     window.onload();
 }
