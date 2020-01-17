@@ -82,7 +82,7 @@ body{
     font-size: 80px;
     margin: 40px 0;
     color: var(--main-color3);
-    font-family: 'Andale Mono';
+    font-family: 'Andale Mono','Bangla Sangarn MN';
 }
 
 .button{
@@ -218,8 +218,8 @@ body{
 #popup {
     display: none;
     position: fixed; 
-    background-color: #3f241983;
-    color: var(--balance-color1);
+    background-color:var(--main-color2);
+    color: var(--main-color1);
     border-radius: 5px;
     top:20%;
     left:10%;
@@ -244,14 +244,14 @@ body{
 }
 #popup h2{
     margin:10% 0;
-    color: var(--main-color2);
+    color: var(--main-color3);
 }
 
 #popup .checks label,#popup .new label{
     text-align: left;
     position: relative;
     left: 7%;
-    color: var(--main-color2);
+    color: var(--main-color1);
 }
 
 #popup .checks,#popup .new {
