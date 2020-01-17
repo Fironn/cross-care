@@ -1,3 +1,31 @@
+/* p98 */
+
+:root {
+    --main-color1: #3f2419;
+    --main-color2: #fef8ef;
+    --main-color3: #864a59;
+    --balance-color1: #cec49f;
+    --balance-color2: #d57974;
+    --balance-color3: #752e21;
+    --bar-color1: #84ab94;
+    --bar-color2: #ebdd61;
+    --bar-color3: #bed8ba;
+    --acent:#00936e;
+}
+
+element {
+    --main-color1: #3f2419;
+    --main-color2: #fef8ef;
+    --main-color3: #864a59;
+    --balance-color1: #cec49f;
+    --balance-color2: #d57974;
+    --balance-color3: #752e21;
+    --bar-color1: #84ab94;
+    --bar-color2: #ebdd61;
+    --bar-color3: #bed8ba;
+    --acent:#00936e;
+}
+
 #group{
     position: relative;
     margin-top: 23%;
@@ -8,10 +36,14 @@
     width: 100vw;
 }
 
+.top{
+    background-color: var(--main-color3);
+}
+
 .item{
-    background-color: rgb(173, 173, 173);
+    background-color: var(--balance-color1);
     height: 70vw;
-    border: solid 4px rgb(226, 226, 226);
+    border: solid 4px var(--bar-color1);
     z-index: 99996;
 }
 
@@ -74,7 +106,7 @@
 .fa-heart {
     position: relative;
     top:-130px;
-    color: #fd8e8eaf;
+    color: #d5797488;
     font-size:80px;
     display: none;
 }

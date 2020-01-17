@@ -32,6 +32,7 @@ function addPoint(add,type){
     }).then(function (result) {
         console.log(result.data);
     }).catch(error => console.log(error));
+    
 }
 
 large=function() {
