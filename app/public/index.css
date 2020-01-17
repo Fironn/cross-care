@@ -1,36 +1,69 @@
-/* :root {
-    --main-color: #7117ea;
-    --sub-color: #ea6060;
-    --bg-gradation: linear-gradient(135deg, var(--main-color) 0%, var(--sub-color) 100%) fixed;
-} */
+/* p98 */
 
-  /* p220 */
+:root {
+    --main-color1: #3f2419;
+    --main-color2: #fef8ef;
+    --main-color3: #864a59;
+    --balance-color1: #cec49f;
+    --balance-color2: #d57974;
+    --balance-color3: #752e21;
+    --bar-color1: #84ab94;
+    --bar-color2: #ebdd61;
+    --bar-color3: #bed8ba;
+    --acent:#00936e;
+}
+
+element {
+    --main-color1: #3f2419;
+    --main-color2: #fef8ef;
+    --main-color3: #864a59;
+    --balance-color1: #cec49f;
+    --balance-color2: #d57974;
+    --balance-color3: #752e21;
+    --bar-color1: #84ab94;
+    --bar-color2: #ebdd61;
+    --bar-color3: #bed8ba;
+    --acent:#00936e;
+}
 
 html{
     margin:0;
     padding:0;
-    font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
+    font-family: 'Avenir-Medium','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
 }
 
+/* onMouseDown="return false;" onSelectStart="return false;" */
 body{
+    /* user-select:none;
+    -webkit-user-select:none;
+    -ms-user-select: none;
+    -moz-user-select:none;
+    -khtml-user-select:none;
+    -webkit-user-drag:none;
+    -khtml-user-drag:none; */
     margin:0;
     padding:0;
+    background-color: var(--main-color2);
 }
 
 .top{
     position: absolute;
     width: 100%;
-    color: black;
+    min-height: 100%;
+    color: var(--main-color1);
     text-align: center;
     letter-spacing: 4px;
     vertical-align: middle;
+    z-index: 2;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 #title{
     position: absolute;
     width: 100%;
     top:13vh;
-    color: black;
+    color: var(--main-color1);
     text-align: center;
     letter-spacing: 4px;
     vertical-align: middle;
@@ -39,6 +72,7 @@ body{
 #title .smaller{
     position: relative;
     top:50px;
+    color: var(--main-color1);
     font-size: smaller;
 }
 
@@ -47,6 +81,8 @@ body{
     top:30px;
     font-size: 80px;
     margin: 40px 0;
+    color: var(--main-color3);
+    font-family: 'Andale Mono','Bangla Sangarn MN';
 }
 
 .button{
@@ -95,6 +131,8 @@ body{
 
 .button p{
     margin: 10px;
+    background-color: #864a5921;
+    border-radius: 5px;
 }
 
 .btn-partial-line {
@@ -103,9 +141,9 @@ body{
     font-weight: bold;
     padding: 0.25em 0.5em;
     text-decoration: none;
-    border-bottom: solid 3px #000000;
-    border-left: solid 3px #000000;
-    color: #000000;
+    border-bottom: solid 3px var(--balance-color2);
+    border-left: solid 3px var(--balance-color2);
+    color: var(--balance-color3);
     transition: .4s;
 }  
 
@@ -115,14 +153,19 @@ body{
 }
 
 #logout{
+    font-weight: 100;
     display: none;
+    background-color: var(--balance-color2);
+    color: var(--main-color2);
+    opacity: 0.7;
 }
 
 .logout button{
     position: absolute;
     top:26px;
     right: 5px;
-    border: 2px solid #ddd;
+    border: none;
+    border-radius: 2px;
 }
 
 #userinfo{
@@ -134,35 +177,95 @@ body{
     margin: 0;
 }
 
-#popup {
+#popup_note {
     display: none;
     position: fixed; 
-    background-color: rgb(255, 255, 255);
+    color: var(--main-color1);
+    background-color: var(--main-color2);
     border-radius: 5px;
-    top:30%;
+    top:15%;
     left:10%;
-    height: 40%;
+    max-height: 75%;
     width: 80%;
     text-align: center;
+    overflow: scroll;
     z-index: 99999;
 }
 
+#note_detail{
+    overflow: scroll;
+    padding-bottom: 50px;
+}
+
+#note_detail div{
+    margin: 15px;
+    text-align: left;
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+
+#popup_note i{
+    color: var(--balance-color2);
+    font-size: 30px;
+    position: fixed;
+    margin: 15px;
+    left: 43%;
+    bottom: 10%;
+    background-color: rgba(255, 255, 255, 0.226);
+}
+
+#popup {
+    display: none;
+    position: fixed; 
+    background-color:var(--main-color2);
+    color: var(--main-color1);
+    border-radius: 5px;
+    top:20%;
+    left:10%;
+    min-height: 58%;
+    width: 80%;
+    text-align: center;
+    z-index: 99999;
+    overflow: scroll;
+}
+
 #popup div{
+    position: relative;
     margin:5% 0;
 }
 
 #popup p{
-    margin:5% 0;
+    margin:8% 0;
+    border-color: var(--acent);
+    color: var(--main-color1);
+    background-color: #bed8baaf;
+    border-radius: 5px;
 }
 #popup h2{
     margin:10% 0;
+    color: var(--main-color3);
 }
 
-#popup input{
+#popup .checks label,#popup .new label{
+    text-align: left;
+    position: relative;
+    left: 7%;
+    color: var(--main-color1);
+}
+
+#popup .checks,#popup .new {
+    text-align: left;
+}
+
+#popup .new input,#popup .checks input{
     padding: 3px 7px; 
-    border-radius: 3px;
-    border: 2px solid #ddd;
+    width: 45%;
     box-sizing: border-box;
+    position: absolute;
+    left:50%;
+    border-radius: 3px;
+    border: 2px solid var(--bar-color3);
 }
 
 #layer {
@@ -171,8 +274,10 @@ body{
     left: 0px;
     top: 0px;
     width: 100%;
+    z-index: 99998;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.349);
+    background-color: var(--balance-color3);
+    opacity: 0.3;
 }
 
 #log{
@@ -185,25 +290,49 @@ body{
 }
 
 .home{
-    color: black;
+    color: var(--bar-color2);
     font-size: 45px;
     position: fixed;
     top:20px;
     right: 10px;
     z-index: 99998;
+    text-shadow: 2px 2px 5px #3f24199c;
 }
 
 #noti{
-    background-color: #000000;
+    background-color: var(--main-color1);
+    color: var(--main-color2);
     height: 15px;
     position: fixed;
     width: 100%;
     bottom: 0;
-    color: white;
+    color: var(--main-color2);
     margin: 0;
     padding: 5px;
     vertical-align: middle;
     font-size: 10px;
-    text-align: center;
-    letter-spacing: 2px;
+    overflow: scroll;
+    text-align: left;
+    letter-spacing: 1.5px;
+    z-index: 99997;
+}
+
+#egg_all{
+    position: absolute;
+    width: 100%;
+    transition: .4s;
+}
+#egg_trim_all{
+    width: 70%;
+    height: 70%;
+    top:22%;
+    left: 15%;
+    overflow:hidden;
+    position: absolute;
+    opacity: 0.5;
+}
+
+#egg_all:active{
+    padding-bottom: 0.7em;
+    padding-top: 0.3em;
 }

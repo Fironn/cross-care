@@ -4,9 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     <title>Egg</title>
+    <link rel="shortcut icon" href="img/icon.png" type="image/png">
     <script src="https://kit.fontawesome.com/f4a3d5924d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="index.css" type="text/css">
     <link rel="stylesheet" href="egg.css" type="text/css">
+    <link rel="manifest" href="manifest.json">
   </head>
   <body>
     <div class="top">
@@ -22,13 +24,37 @@
     <div id="egg_trim">
       <img id="egg" src="img/1.png" onclick="large();">
     </div>
-    <!-- <input type="button" value="exec" onclick="large();"> -->
-    <div id="noti">notificaition</div>
+    <div id="layer"></div>
+    <div id="popup_note">
+      <div id="note_detail"></div>
+      <i class="fas fa-times" onclick="noteHide();"></i>
+    </div>
+    <div id="popup">
+      <h2>今日は<br>どんな日でしたか？</h2>
+      <div><i class="far fa-frown-open" style="color: rgb(204, 60, 60);"></i><i class="far fa-meh" style="color: #ebdd61;"></i><i class="far fa-smile"
+          style="color:rgb(62, 143, 62);"></i></div>
+      <div id="bar"><input id="bar_select" type="range" min="-100" max="100" value="0" step="10" name="range"
+          oninput="document.getElementById('bar_value').value=this.value"></div><output id="bar_value">0</output>
+      <hr width="95%" size="2">
+      <h6>達成できたかチェックしてみよう！</h6>
+      <div class="check">
+        <input type="checkbox" name="#" value="1" id="check1">
+        <label for="check1" class="label">...</label>
+        <input type="checkbox" name="#" value="2" id="check2">
+        <label for="check2" class="label">...</label>
+        <input type="checkbox" name="#" value="3" id="check3">
+        <label for="check3" class="label">...</label>
+      </div>
+      <p class="btn-partial-line" id="popupHide" onclick="saveNote();">保存</p>
+    </div>
+    <div id="noti" onclick="noteShow();">notificaition</div>
   </body>
   <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-functions.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-database.js"></script>
   <script src="main.js" type="text/javascript"></script>
   <script src="egg.js" type="text/javascript"></script>
 </html>

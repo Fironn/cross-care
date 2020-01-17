@@ -1,3 +1,5 @@
+import { createConnection } from "net";
+
     //  WGX_iBeacon
      //  fda50693-a4e2-4fb1-afcf-c6eb07647825
     //  00002a00-0000-1000-8000-00805f9b34fb generic
@@ -74,21 +76,115 @@ var scopes = Array("battery", "serviceinformation",
   "servicediscovery", "file",
   "mediastream_recording", "omnidirectional_image"
 );
-var applicationName = "YOUR_APPLICATION_NAME";
-dConnect.authorization(scopes, applicationName,
-  function (clientId, accessToken) {
-    // 許可が得られた場合
-  },
-  function (errorCode, errorMessage) {
-    // 許可が得られなかった場合
+
+// createConnection/ble/
+var dc = new DeviceConnect({
+  applicationName: "cross-care"
+});
+dc.setup()
+  .then(function () {
+    // 準備完了
+  }, function (error) {
+    // エラー
+    alert(error.errorMessage)
   });
 
-// accessToken は先ほど取得したものを使います
-dConnect.discoverDevices(accessToken,
-  function (json) {
-    // json.servicesの中にデバイス情報が返ってきます
-  },
-  function (errorCode, errorMessage) {
-    // 認証が得られなかった場合
-  });
-  
+
+var DeviceConnect = (function () {
+  var scopes = Array("DeviceConnect");
+
+  var DeviceConnect = function (args) {
+    this.applicationName = args.applicationName;
+    this.clientId = localStorage.getItem('clientId') || "";
+    this.host = args.host || host;
+    this.scopes = args.scopes || scopes;
+    this.accessToken = localStorage.getItem('accessToken') || "";
+    this.services = [];
+  }
+
+  var p = DeviceConnect.prototype;
+
+  p.findService = function (name) {
+    for (i in this.services) {
+      if (this.services[i].id.toLowerCase().indexOf(name.toLowerCase()) == 0) {
+        return this.services[i].id;
+      }
+    }
+  }
+
+  p.setLocalStorage = function () {
+    localStorage.setItem('clientId', me.clientId);
+    localStorage.setItem('accessToken', me.accessToken);
+  }
+
+  p.setup = function () {
+    var me = this;
+    var p = new Promise(function (resolve, reject) {
+      me.check()
+        .then(function (res) {
+          return me.grant()
+        }, function (res) {
+          return reject(res);
+        })
+        .then(function (res) {
+          me.accessToken = res.accessToken;
+          me.clientId = res.clientId;
+          me.setLocalStorage()
+          return me.discover()
+        }, function (res) {
+          return reject(res);
+        })
+        .then(function (services) {
+          me.services = services;
+          return resolve(res);
+        }, function (res) {
+          return reject(res);
+        })
+    });
+    return p;
+  };
+
+  p.discover = function () {
+    me = this;
+    var p = new Promise(function (resolve, reject) {
+      dConnect.discoverDevices(me.accessToken,
+        function (json) {
+          return resolve(json.services);
+        },
+        function (errorCode, errorMessage) {
+          return reject({ errorCode: errorCode, errorMessage: errorMessage })
+        });
+    });
+    return p;
+  };
+
+  p.grant = function () {
+    me = this;
+    var p = new Promise(function (resolve, reject) {
+      if (me.clientId && me.accessToken != "") {
+        return resolve({ clientId: me.clientId, accessToken: me.accessToken });
+      }
+      dConnect.authorization(me.scopes, me.applicationName,
+        function (clientId, accessToken) {
+          return resolve({ clientId: clientId, accessToken: accessToken });
+        },
+        function (errorCode, errorMessage) {
+          return reject({ errorCode: errorCode, errorMessage: errorMessage })
+        });
+    });
+    return p;
+  };
+
+  p.check = function () {
+    var p = new Promise(function (resolve, reject) {
+      dConnect.checkDeviceConnect(
+        function (apiVersion) {
+          return resolve({ apiVersion: apiVersion });
+        }, function (errorCode, errorMessage) {
+          return reject({ errorCode: errorCode, errorMessage: errorMessage })
+        });
+    });
+    return p;
+  }
+  return DeviceConnect;
+})();

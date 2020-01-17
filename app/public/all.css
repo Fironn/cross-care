@@ -1,3 +1,31 @@
+/* p98 */
+
+:root {
+    --main-color1: #3f2419;
+    --main-color2: #fef8ef;
+    --main-color3: #864a59;
+    --balance-color1: #cec49f;
+    --balance-color2: #d57974;
+    --balance-color3: #752e21;
+    --bar-color1: #84ab94;
+    --bar-color2: #ebdd61;
+    --bar-color3: #bed8ba;
+    --acent:#00936e;
+}
+
+element {
+    --main-color1: #3f2419;
+    --main-color2: #fef8ef;
+    --main-color3: #864a59;
+    --balance-color1: #cec49f;
+    --balance-color2: #d57974;
+    --balance-color3: #752e21;
+    --bar-color1: #84ab94;
+    --bar-color2: #ebdd61;
+    --bar-color3: #bed8ba;
+    --acent:#00936e;
+}
+
 #group{
     position: relative;
     margin-top: 23%;
@@ -8,10 +36,15 @@
     width: 100vw;
 }
 
+.top{
+    background-color: var(--balance-color2);
+}
+
 .item{
-    background-color: rgb(163, 163, 163);
+    background-color: var(--balance-color1);
     height: 70vw;
-    border: solid 4px rgb(226, 226, 226);
+    border: solid 4px var(--bar-color1);
+    z-index: 99996;
 }
 
 .detail{
@@ -28,7 +61,7 @@
 
 .detail #userName{
     font-size: 10px;
-    left: 55px;
+    left: 58px;
     height: 10px;
     position: relative;
 }
@@ -36,7 +69,7 @@
 .detail #petName{
     position: relative;
     height: 10px;
-    left:55px;
+    left:58px;
     top:8px;
     font-size: 15px;
     font-weight: 500;
@@ -63,4 +96,17 @@
 #egg{
     width: 25vw;
     transition: .4s;
+}
+
+#egg:active{
+    padding-bottom: 0.7em;
+    padding-top: 0.3em;
+}
+
+.fa-heart {
+    position: relative;
+    top:-130px;
+    color: #d5797488;
+    font-size:80px;
+    display: none;
 }
