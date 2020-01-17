@@ -81,7 +81,6 @@ function initApp(){
                 `<div class="goto">
                     <p class="btn-partial-line" onclick="location.href = 'egg.html'"><spam class="larger">わたし</spam>の<br>たまご</p>
                     <p class="btn-partial-line" onclick = "location.href='all.html'"> <spam class="larger">みんな</spam>の<br>たまご</p>
-                    <p class="btn-partial-line" onclick="location.href='beacon.html'"><spam class="larger">test</spam><br>Beacon</p>
                 </div>`;
             document.getElementById("logout").style.display = "block";
             printUserInfo(user.email);
@@ -91,6 +90,7 @@ function initApp(){
         }
     });
 }
+{/* <p class="btn-partial-line" onclick="location.href='beacon.html'"><spam class="larger">test</spam><br>Beacon</p> */}
 
 
 function showEgg(){

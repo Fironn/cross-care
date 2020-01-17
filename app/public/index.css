@@ -180,6 +180,7 @@ body{
     margin: 15px;
     left: 43%;
     bottom: 10%;
+    background-color: rgba(255, 255, 255, 0.397);
 }
 
 #popup {
@@ -207,14 +208,23 @@ body{
     margin:10% 0;
 }
 
+#popup .checks label,#popup .new label{
+    text-align: left;
+    position: relative;
+    left: 7%;
+}
 
-#popup .check input{
+#popup .checks,#popup .new {
+    text-align: left;
+}
+
+#popup .new input,#popup .checks input{
     padding: 3px 7px; 
     border-radius: 3px;
     border: 2px solid #ddd;
     box-sizing: border-box;
     position: absolute;
-    right: 35px;
+    left:50%;
 }
 
 #layer {

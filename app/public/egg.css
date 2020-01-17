@@ -80,7 +80,7 @@
 #popup {
     display: block;
     text-align: center;
-    height:74%;
+    height:82%;
     width: 80%;
     top:10%;
 }
@@ -96,6 +96,16 @@
     font-size: 40px;
     margin: 0 20px;
     text-align: center;
+}
+
+#popup .check{
+    border-radius: 3px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 1px;
+    font-weight: 550;
+    margin: 3% 0;
 }
 
 #bar{
@@ -127,13 +137,6 @@
     display: inline;
 }
 
-.check{
-    position: relative;
-    font-size: 10px;
-    letter-spacing: 1px;
-    font-weight: 600;
-}
-
 input[type="checkbox"] {
     display: none; /* チェックボックスを非表示にする */
 }
@@ -149,13 +152,14 @@ input[type="checkbox"]:checked + label {
 }
 
 .label {
-    display:inline-block; /* ブロックレベル要素化する */
-    width: 25%; /* ラベルの横幅を指定する */
-    height: 5%; /* ラベルの高さを指定する */
+    display:block; /* ブロックレベル要素化する */
+    width: 80%; /* ラベルの横幅を指定する */
+    margin: 2% auto;
     text-align: center; /* テキストのセンタリングを指定する */
-    line-height: 30px;
+    line-height: 25px;
     border: 2px solid rgb(59, 59, 59);/* ラベルの境界線を実線で指定する */
     border-radius: 5px; /* 角丸を指定する */
+    overflow: scroll;
 }
 
 input[type=range] {
