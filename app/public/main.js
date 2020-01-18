@@ -22,6 +22,7 @@ var getAdd = firebase.functions().httpsCallable('getAdd');
 var getDetailAll = firebase.functions().httpsCallable('getDetailAll');
 var setNote = firebase.functions().httpsCallable('setNote');
 var getNote = firebase.functions().httpsCallable('getNote');
+
 var pics_src = new Array("img/1.png", "img/2.png", "img/3.png", "img/4.png", "img/5.png", "img/6.png");
 
 var thisUser;
@@ -81,6 +82,7 @@ function initApp(){
                 `<div class="goto">
                     <p class="btn-partial-line" onclick="location.href = 'egg.html'"><spam class="larger">わたし</spam>の<br>たまご</p>
                     <p class="btn-partial-line" onclick = "location.href='all.html'"> <spam class="larger">みんな</spam>の<br>たまご</p>
+                    <p class="btn-partial-line" onclick = "onButtonClick();"> <spam class="larger">すれ違い</spam>を<br>アップデート</p>
                 </div>`;
             document.getElementById("logout").style.display = "block";
             printUserInfo(user.email);
