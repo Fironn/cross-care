@@ -156,3 +156,39 @@ exports.setNote = functions.https.onCall((data, context) => {
         throw new functions.https.HttpsError('unknown', error.message, error);
     });
 });
+
+exports.setRSSI = functions.https.onCall((data, context) => {
+    const userId = context.auth.uid;
+    const beaconId=data.beaconId;
+    const rssi=data.rssi;
+    if (!userId) {
+        throw new functions.https.HttpsError('put the data');
+    }
+    return admin.database().ref("/users/" + userId + "/RSSI/"+beaconId).update({
+        uid: userId,
+        rssi:rssi,
+        update: Date.now()
+    }).then(() => {
+        console.log('New Message written');
+        // Returning the sanitized message to the client.
+        return data;
+    }).catch(error => {
+        throw new functions.https.HttpsError('unknown', error.message, error);
+    });
+});
+
+exports.getRSSIAll = functions.https.onCall((data, context) => {
+    return admin.database().ref("/users").once("value")
+        .then(snapshot => {
+            const products = snapshot.val();
+            const array = Object.keys(products).map(key => products[key]);
+            var arraySend = [];
+            for (var i = 0; i < array.length; i++) {
+                arraySend.push(array[i]["RSSI"]);
+            }
+            return arraySend;
+        }
+        ).catch(error => {
+            throw new functions.https.HttpsError('unknown', error.message, error);
+        });
+});

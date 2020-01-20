@@ -1,13 +1,6 @@
 // Your web app's Firebase configuration
 var firebaseConfig = {
-    apiKey: "AIzaSyChJyeair2I4TkizlQD91yY2JEJ8CdFhq8",
-    authDomain: "cross-care-d73be.firebaseapp.com",
-    databaseURL: "https://cross-care-d73be.firebaseio.com",
-    projectId: "cross-care-d73be",
-    storageBucket: "cross-care-d73be.appspot.com",
-    messagingSenderId: "476335307395",
-    appId: "1:476335307395:web:b42767053c1a18f92639b6",
-    measurementId: "G-N508Y1632H"
+    // FIREBASE CONFIG
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -22,6 +15,7 @@ var getAdd = firebase.functions().httpsCallable('getAdd');
 var getDetailAll = firebase.functions().httpsCallable('getDetailAll');
 var setNote = firebase.functions().httpsCallable('setNote');
 var getNote = firebase.functions().httpsCallable('getNote');
+
 var pics_src = new Array("img/1.png", "img/2.png", "img/3.png", "img/4.png", "img/5.png", "img/6.png");
 
 var thisUser;
@@ -81,6 +75,7 @@ function initApp(){
                 `<div class="goto">
                     <p class="btn-partial-line" onclick="location.href = 'egg.html'"><spam class="larger">わたし</spam>の<br>たまご</p>
                     <p class="btn-partial-line" onclick = "location.href='all.html'"> <spam class="larger">みんな</spam>の<br>たまご</p>
+                    <p class="btn-partial-line" onclick = "onButtonClick();"> <spam class="larger">すれ違い</spam>を<br>アップデート</p>
                 </div>`;
             document.getElementById("logout").style.display = "block";
             printUserInfo(user.email);
