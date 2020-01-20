@@ -1,13 +1,6 @@
 // Your web app's Firebase configuration
 var firebaseConfig = {
-    apiKey: "AIzaSyChJyeair2I4TkizlQD91yY2JEJ8CdFhq8",
-    authDomain: "cross-care-d73be.firebaseapp.com",
-    databaseURL: "https://cross-care-d73be.firebaseio.com",
-    projectId: "cross-care-d73be",
-    storageBucket: "cross-care-d73be.appspot.com",
-    messagingSenderId: "476335307395",
-    appId: "1:476335307395:web:b42767053c1a18f92639b6",
-    measurementId: "G-N508Y1632H"
+    // FIREBASE CONFIG
 };
 
 const vw =screen.width;

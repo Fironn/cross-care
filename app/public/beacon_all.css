@@ -32,7 +32,6 @@ html{
     font-family: 'Avenir-Medium','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
 }
 
-/* onMouseDown="return false;" onSelectStart="return false;" */
 body{
     /* user-select:none;
     -webkit-user-select:none;
